@@ -174,12 +174,16 @@ enum HabitCalendar {
     }
 
     /// Rolling last `count` days ending with `referenceDate` (Today).
-    static func rollingDays(count: Int = 7, endingOn referenceDate: Date = Date()) -> [RollingDay] {
-        let cal = monday
+    static func rollingDays(
+        count: Int = 7,
+        endingOn referenceDate: Date = Date(),
+        calendar: Calendar = monday
+    ) -> [RollingDay] {
+        let cal = calendar
         let today = cal.startOfDay(for: referenceDate)
         let lettersByWeekday = [1: "S", 2: "M", 3: "T", 4: "W", 5: "T", 6: "F", 7: "S"]
 
-        return (0..<count).reversed().compactMap { offset in
+        return (0..<max(count, 0)).reversed().compactMap { offset in
             guard let date = cal.date(byAdding: .day, value: -offset, to: today) else { return nil }
             let dayNum = cal.component(.day, from: date)
             let weekday = cal.component(.weekday, from: date)
@@ -193,23 +197,31 @@ enum HabitCalendar {
         }
     }
 
-    static func headerMonthYear(for date: Date = Date()) -> String {
+    static func headerMonthYear(for date: Date = Date(), calendar: Calendar = monday) -> String {
         let formatter = DateFormatter()
-        formatter.calendar = monday
+        formatter.calendar = calendar
+        formatter.locale = calendar.locale
+        formatter.timeZone = calendar.timeZone
         formatter.dateFormat = "MMM yyyy"
         return formatter.string(from: date).uppercased()
     }
 
-    static func currentMonthShortName(for date: Date = Date()) -> String {
+    static func currentMonthShortName(for date: Date = Date(), calendar: Calendar = monday) -> String {
         let formatter = DateFormatter()
-        formatter.calendar = monday
+        formatter.calendar = calendar
+        formatter.locale = calendar.locale
+        formatter.timeZone = calendar.timeZone
         formatter.dateFormat = "MMM"
         return formatter.string(from: date)
     }
 
     /// Progress in the current Monday–Sunday week.
-    static func currentWeekCount(completedSet: Set<String>, referenceDate: Date = Date()) -> Int {
-        let cal = monday
+    static func currentWeekCount(
+        completedSet: Set<String>,
+        referenceDate: Date = Date(),
+        calendar: Calendar = monday
+    ) -> Int {
+        let cal = calendar
         let weekStart = startOfMondayWeek(for: referenceDate, calendar: cal)
         var count = 0
         for offset in 0..<7 {
@@ -222,8 +234,12 @@ enum HabitCalendar {
     }
 
     /// Current month `done` vs `elapsedDays` (1...todayDay).
-    static func currentMonthProgress(completedSet: Set<String>, referenceDate: Date = Date()) -> (done: Int, elapsed: Int) {
-        let cal = monday
+    static func currentMonthProgress(
+        completedSet: Set<String>,
+        referenceDate: Date = Date(),
+        calendar: Calendar = monday
+    ) -> (done: Int, elapsed: Int) {
+        let cal = calendar
         let comps = cal.dateComponents([.year, .month, .day], from: referenceDate)
         guard let y = comps.year, let m = comps.month, let todayDay = comps.day else {
             return (0, 1)
@@ -241,8 +257,13 @@ enum HabitCalendar {
     /// Streak label for the quiet Calendar stats bar.
     /// - Daily habits: consecutive completed days (includes today if done; otherwise counts from yesterday).
     /// - N×/wk habits: consecutive Monday–Sunday weeks meeting `targetPerWeek` (includes current week if already met, plus consecutive prior weeks).
-    static func streakText(for habit: Habit, completedSet: Set<String>, referenceDate: Date = Date()) -> String {
-        let cal = monday
+    static func streakText(
+        for habit: Habit,
+        completedSet: Set<String>,
+        referenceDate: Date = Date(),
+        calendar: Calendar = monday
+    ) -> String {
+        let cal = calendar
         let today = cal.startOfDay(for: referenceDate)
 
         if habit.isDaily {
@@ -324,8 +345,13 @@ enum HabitCalendar {
     }
 
     /// Generates months chronologically from oldest to the current month (at least 12 months, or further back if older history exists).
-    static func monthsHistory(for habit: Habit, completedSet: Set<String>, referenceDate: Date = Date()) -> [MonthSummary] {
-        let cal = monday
+    static func monthsHistory(
+        for habit: Habit,
+        completedSet: Set<String>,
+        referenceDate: Date = Date(),
+        calendar: Calendar = monday
+    ) -> [MonthSummary] {
+        let cal = calendar
         let nowComps = cal.dateComponents([.year, .month, .day], from: referenceDate)
         guard let curYear = nowComps.year, let curMonth = nowComps.month, let curDay = nowComps.day else {
             return []
@@ -350,6 +376,8 @@ enum HabitCalendar {
 
         let shortFormatter = DateFormatter()
         shortFormatter.calendar = cal
+        shortFormatter.locale = cal.locale
+        shortFormatter.timeZone = cal.timeZone
 
         return (0..<monthsCount).reversed().compactMap { offset in
             guard let monthStart = cal.date(byAdding: .month, value: -offset, to: currentMonthFirst) else { return nil }
