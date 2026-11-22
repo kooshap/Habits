@@ -37,6 +37,7 @@ struct ReorderHabitsSheet: View {
                         habit.sortOrder = index
                     }
                     try? modelContext.save()
+                    HabitWidgetSync.sync(from: modelContext)
                 }
             }
             .listStyle(.insetGrouped)

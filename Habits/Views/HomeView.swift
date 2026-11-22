@@ -92,6 +92,7 @@ struct HomeView: View {
             Button("Delete", role: .destructive) {
                 modelContext.delete(habit)
                 try? modelContext.save()
+                HabitWidgetSync.sync(from: modelContext)
                 habitPendingDelete = nil
             }
             Button("Cancel", role: .cancel) {
@@ -155,14 +156,19 @@ struct HomeView: View {
         } message: {
             Text(alertMessage ?? "")
         }
-        // Automatic Midnight / Foreground Day Refresh
+        // Automatic Midnight / Foreground Day Refresh & Widget Sync
+        .onAppear {
+            HabitWidgetSync.sync(from: modelContext)
+        }
         .onChange(of: scenePhase) { _, newPhase in
             if newPhase == .active {
                 today = HabitCalendar.startOfDay(Date())
+                HabitWidgetSync.sync(from: modelContext)
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.significantTimeChangeNotification)) { _ in
             today = HabitCalendar.startOfDay(Date())
+            HabitWidgetSync.sync(from: modelContext)
         }
     }
 
@@ -321,6 +327,7 @@ struct HomeView: View {
                     ) {
                         habit.toggle(dateKey: day.key)
                         try? modelContext.save()
+                        HabitWidgetSync.sync(from: modelContext)
                     }
                 }
             }
@@ -410,6 +417,7 @@ struct HomeView: View {
                 existingHabits: habits,
                 in: modelContext
             )
+            HabitWidgetSync.sync(from: modelContext)
             UINotificationFeedbackGenerator().notificationOccurred(.success)
             pendingImportPayload = nil
         } catch {

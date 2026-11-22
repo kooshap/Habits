@@ -203,6 +203,7 @@ struct HabitEditorSheet: View {
             modelContext.insert(newHabit)
         }
         try? modelContext.save()
+        HabitWidgetSync.sync(from: modelContext)
         dismiss()
     }
 }

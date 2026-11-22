@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AA00004B000000000000004B /* HabitsWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AA0000410000000000000041 /* HabitsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AA0000540000000000000054 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0000520000000000000052 /* WidgetKit.framework */; };
+		AA0000550000000000000055 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0000530000000000000053 /* SwiftUI.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		AA0000230000000000000023 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,12 +27,39 @@
 			remoteGlobalIDString = AA0000060000000000000006;
 			remoteInfo = Habits;
 		};
+		AA0000430000000000000043 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA0000100000000000000010 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0000400000000000000040;
+			remoteInfo = HabitsWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AA00004C000000000000004C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AA00004B000000000000004B /* HabitsWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AA0000010000000000000001 /* Habits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0000210000000000000021 /* HabitsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0000310000000000000031 /* HabitsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000410000000000000041 /* HabitsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HabitsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA00004F000000000000004F /* Habits.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Habits.entitlements; sourceTree = "<group>"; };
+		AA0000500000000000000050 /* HabitsWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HabitsWidget.entitlements; sourceTree = "<group>"; };
+		AA0000510000000000000051 /* HabitsWidget-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HabitsWidget-Info.plist"; sourceTree = "<group>"; };
+		AA0000520000000000000052 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		AA0000530000000000000053 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -43,6 +76,16 @@
 		AA0000320000000000000032 /* HabitsUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = HabitsUITests;
+			sourceTree = "<group>";
+		};
+		AA0000420000000000000042 /* HabitsWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HabitsWidget;
+			sourceTree = "<group>";
+		};
+		AA00004D000000000000004D /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -69,6 +112,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA0000460000000000000046 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000540000000000000054 /* WidgetKit.framework in Frameworks */,
+				AA0000550000000000000055 /* SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -76,6 +128,9 @@
 			isa = PBXGroup;
 			children = (
 				AA0000020000000000000002 /* Habits */,
+				AA00004D000000000000004D /* Shared */,
+				AA0000420000000000000042 /* HabitsWidget */,
+				AA00004E000000000000004E /* Config */,
 				AA0000220000000000000022 /* HabitsTests */,
 				AA0000320000000000000032 /* HabitsUITests */,
 				AA0000050000000000000005 /* Products */,
@@ -86,10 +141,23 @@
 			isa = PBXGroup;
 			children = (
 				AA0000010000000000000001 /* Habits.app */,
+				AA0000410000000000000041 /* HabitsWidgetExtension.appex */,
 				AA0000210000000000000021 /* HabitsTests.xctest */,
 				AA0000310000000000000031 /* HabitsUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AA00004E000000000000004E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				AA00004F000000000000004F /* Habits.entitlements */,
+				AA0000500000000000000050 /* HabitsWidget.entitlements */,
+				AA0000510000000000000051 /* HabitsWidget-Info.plist */,
+				AA0000520000000000000052 /* WidgetKit.framework */,
+				AA0000530000000000000053 /* SwiftUI.framework */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,13 +170,16 @@
 				AA0000080000000000000008 /* Sources */,
 				AA0000030000000000000003 /* Frameworks */,
 				AA0000090000000000000009 /* Resources */,
+				AA00004C000000000000004C /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AA0000440000000000000044 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				AA0000020000000000000002 /* Habits */,
+				AA00004D000000000000004D /* Shared */,
 			);
 			name = Habits;
 			packageProductDependencies = (
@@ -163,6 +234,29 @@
 			productReference = AA0000310000000000000031 /* HabitsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		AA0000400000000000000040 /* HabitsWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000480000000000000048 /* Build configuration list for PBXNativeTarget "HabitsWidgetExtension" */;
+			buildPhases = (
+				AA0000450000000000000045 /* Sources */,
+				AA0000460000000000000046 /* Frameworks */,
+				AA0000470000000000000047 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA0000420000000000000042 /* HabitsWidget */,
+				AA00004D000000000000004D /* Shared */,
+			);
+			name = HabitsWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = HabitsWidgetExtension;
+			productReference = AA0000410000000000000041 /* HabitsWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,6 +278,9 @@
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = AA0000060000000000000006;
 					};
+					AA0000400000000000000040 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 				};
 			};
 			buildConfigurationList = AA0000110000000000000011 /* Build configuration list for PBXProject "Habits" */;
@@ -201,6 +298,7 @@
 			projectRoot = "";
 			targets = (
 				AA0000060000000000000006 /* Habits */,
+				AA0000400000000000000040 /* HabitsWidgetExtension */,
 				AA0000200000000000000020 /* HabitsTests */,
 				AA0000300000000000000030 /* HabitsUITests */,
 			);
@@ -223,6 +321,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AA0000370000000000000037 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000470000000000000047 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,6 +358,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA0000450000000000000045 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -265,6 +377,11 @@
 			isa = PBXTargetDependency;
 			target = AA0000060000000000000006 /* Habits */;
 			targetProxy = AA0000330000000000000033 /* PBXContainerItemProxy */;
+		};
+		AA0000440000000000000044 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0000400000000000000040 /* HabitsWidgetExtension */;
+			targetProxy = AA0000430000000000000043 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -383,6 +500,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Config/Habits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
@@ -411,6 +529,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Config/Habits.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
@@ -504,6 +623,60 @@
 			};
 			name = Release;
 		};
+		AA0000490000000000000049 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Config/HabitsWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/HabitsWidget-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Habits;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.koosha.habits.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		AA00004A000000000000004A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Config/HabitsWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/HabitsWidget-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Habits;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.koosha.habits.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -539,6 +712,15 @@
 			buildConfigurations = (
 				AA0000390000000000000039 /* Debug */,
 				AA00003A000000000000003A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000480000000000000048 /* Build configuration list for PBXNativeTarget "HabitsWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000490000000000000049 /* Debug */,
+				AA00004A000000000000004A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
