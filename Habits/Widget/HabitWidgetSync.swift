@@ -37,6 +37,7 @@ enum HabitWidgetSync {
         if (try? HabitWidgetSnapshotStore.save(snapshot)) == true {
             WidgetCenter.shared.reloadTimelines(ofKind: HabitWidgetConstants.widgetKind)
         }
+        PhoneWatchSyncController.shared.pushSnapshot(habits: habits, now: now)
     }
 
     @MainActor

@@ -10,6 +10,7 @@
 		AA00004B000000000000004B /* HabitsWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AA0000410000000000000041 /* HabitsWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AA0000540000000000000054 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0000520000000000000052 /* WidgetKit.framework */; };
 		AA0000550000000000000055 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0000530000000000000053 /* SwiftUI.framework */; };
+		AA00006B000000000000006B /* HabitsWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AA0000610000000000000061 /* HabitsWatchApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,13 @@
 			remoteGlobalIDString = AA0000400000000000000040;
 			remoteInfo = HabitsWidgetExtension;
 		};
+		AA0000630000000000000063 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA0000100000000000000010 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA0000600000000000000060;
+			remoteInfo = HabitsWatchApp;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,6 +56,17 @@
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA00006C000000000000006C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				AA00006B000000000000006B /* HabitsWatchApp.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +74,7 @@
 		AA0000210000000000000021 /* HabitsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0000310000000000000031 /* HabitsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HabitsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0000410000000000000041 /* HabitsWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HabitsWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000610000000000000061 /* HabitsWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitsWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA00004F000000000000004F /* Habits.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Habits.entitlements; sourceTree = "<group>"; };
 		AA0000500000000000000050 /* HabitsWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HabitsWidget.entitlements; sourceTree = "<group>"; };
 		AA0000510000000000000051 /* HabitsWidget-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HabitsWidget-Info.plist"; sourceTree = "<group>"; };
@@ -86,6 +106,11 @@
 		AA00004D000000000000004D /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		AA0000620000000000000062 /* HabitsWatch */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HabitsWatch;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -121,6 +146,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA0000660000000000000066 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -130,6 +162,7 @@
 				AA0000020000000000000002 /* Habits */,
 				AA00004D000000000000004D /* Shared */,
 				AA0000420000000000000042 /* HabitsWidget */,
+				AA0000620000000000000062 /* HabitsWatch */,
 				AA00004E000000000000004E /* Config */,
 				AA0000220000000000000022 /* HabitsTests */,
 				AA0000320000000000000032 /* HabitsUITests */,
@@ -142,6 +175,7 @@
 			children = (
 				AA0000010000000000000001 /* Habits.app */,
 				AA0000410000000000000041 /* HabitsWidgetExtension.appex */,
+				AA0000610000000000000061 /* HabitsWatchApp.app */,
 				AA0000210000000000000021 /* HabitsTests.xctest */,
 				AA0000310000000000000031 /* HabitsUITests.xctest */,
 			);
@@ -171,11 +205,13 @@
 				AA0000030000000000000003 /* Frameworks */,
 				AA0000090000000000000009 /* Resources */,
 				AA00004C000000000000004C /* Embed Foundation Extensions */,
+				AA00006C000000000000006C /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				AA0000440000000000000044 /* PBXTargetDependency */,
+				AA0000640000000000000064 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				AA0000020000000000000002 /* Habits */,
@@ -257,6 +293,29 @@
 			productReference = AA0000410000000000000041 /* HabitsWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		AA0000600000000000000060 /* HabitsWatchApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000680000000000000068 /* Build configuration list for PBXNativeTarget "HabitsWatchApp" */;
+			buildPhases = (
+				AA0000650000000000000065 /* Sources */,
+				AA0000660000000000000066 /* Frameworks */,
+				AA0000670000000000000067 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AA0000620000000000000062 /* HabitsWatch */,
+				AA00004D000000000000004D /* Shared */,
+			);
+			name = HabitsWatchApp;
+			packageProductDependencies = (
+			);
+			productName = HabitsWatchApp;
+			productReference = AA0000610000000000000061 /* HabitsWatchApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -281,6 +340,9 @@
 					AA0000400000000000000040 = {
 						CreatedOnToolsVersion = 16.0;
 					};
+					AA0000600000000000000060 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 				};
 			};
 			buildConfigurationList = AA0000110000000000000011 /* Build configuration list for PBXProject "Habits" */;
@@ -299,6 +361,7 @@
 			targets = (
 				AA0000060000000000000006 /* Habits */,
 				AA0000400000000000000040 /* HabitsWidgetExtension */,
+				AA0000600000000000000060 /* HabitsWatchApp */,
 				AA0000200000000000000020 /* HabitsTests */,
 				AA0000300000000000000030 /* HabitsUITests */,
 			);
@@ -328,6 +391,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		AA0000470000000000000047 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0000670000000000000067 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -365,6 +435,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AA0000650000000000000065 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -382,6 +459,11 @@
 			isa = PBXTargetDependency;
 			target = AA0000400000000000000040 /* HabitsWidgetExtension */;
 			targetProxy = AA0000430000000000000043 /* PBXContainerItemProxy */;
+		};
+		AA0000640000000000000064 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA0000600000000000000060 /* HabitsWatchApp */;
+			targetProxy = AA0000630000000000000063 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -677,6 +759,66 @@
 			};
 			name = Release;
 		};
+		AA0000690000000000000069 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Habits;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.koosha.habits;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.koosha.habits.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		AA00006A000000000000006A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Habits;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.koosha.habits;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.koosha.habits.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -721,6 +863,15 @@
 			buildConfigurations = (
 				AA0000490000000000000049 /* Debug */,
 				AA00004A000000000000004A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000680000000000000068 /* Build configuration list for PBXNativeTarget "HabitsWatchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA0000690000000000000069 /* Debug */,
+				AA00006A000000000000006A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
